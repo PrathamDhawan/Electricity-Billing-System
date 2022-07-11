@@ -50,38 +50,5 @@ public class Consumer {
 	}
 	public Consumer() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	
-	//	
-//	public int calculateBill(Customer customer) {
-//	
-//		int totalBill=0;
-//		int units = customer.getUnits();
-//		int days = customer.getDays();
-//		
-//		switch(customer.getCustomerType()) {
-//		
-//		case 1 : 
-//	
-//			totalBill = (getUnitPriceForIndustrial() * units) * days;
-//			break;
-//		
-//		case 2 : 
-//		
-//			totalBill = (getUnitPriceForRetail() * units) * days;
-//			break;
-//		
-//		case 3 : 
-//			
-//			if(units < 200)
-//				totalBill = 0;
-//			else
-//				totalBill = (getUnitPriceForHomeUsage() * units) * days;
-//			break;
-//		
-//		default: break;		
-//		}
-//		return totalBill;
-//	}
 }

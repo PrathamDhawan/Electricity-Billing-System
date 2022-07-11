@@ -2,14 +2,13 @@ package com.example.demo.model;
 
 public class Customer {
 
-	private int customerType;
+	private String customerType;
 	private int units;
 	private int days;
-	
-	public int getCustomerType() {
+	public String getCustomerType() {
 		return customerType;
 	}
-	public void setCustomerType(int customerType) {
+	public void setCustomerType(String customerType) {
 		this.customerType = customerType;
 	}
 	public int getUnits() {
@@ -27,5 +26,11 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [customerType=" + customerType + ", units=" + units + ", days=" + days + "]";
+	}
+	public Customer(String customerType, int units, int days) {
+		super();
+		this.customerType = customerType;
+		this.units = units;
+		this.days = days;
 	}
 }
