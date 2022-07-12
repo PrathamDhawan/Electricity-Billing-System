@@ -25,9 +25,14 @@ public class ConsumerService {
 	
 	public Consumer updateConsumer(Consumer consumer) {
 		Consumer existingConsumer = repo.findById(consumer.getConsumerType()).orElse(null);
-		existingConsumer.setFreeUnits(consumer.getFreeUnits());
-		existingConsumer.setPerUnitPrice(consumer.getPerUnitPrice());
-		return repo.save(existingConsumer);
+		if(existingConsumer==null)
+			return repo.save(consumer);
+		else {
+			existingConsumer.setFreeUnits(consumer.getFreeUnits());
+			existingConsumer.setPerUnitPrice(consumer.getPerUnitPrice());
+			return repo.save(existingConsumer);
+		}
+			
 	}
 
 	public String generateBill(Customer customer) {
