@@ -7,7 +7,7 @@ import com.example.demo.model.Customer;
 import com.example.demo.repository.BillRepository;
 
 @Service
-public class ConsumerService {
+public class ConsumerService{
 	
 	private BillRepository repo;
 	
@@ -31,12 +31,15 @@ public class ConsumerService {
 			existingConsumer.setFreeUnits(consumer.getFreeUnits());
 			existingConsumer.setPerUnitPrice(consumer.getPerUnitPrice());
 			return repo.save(existingConsumer);
-		}
-			
+		}		
+	}
+	
+	public String generateBill(Customer cust) {
+		return gb.generateBill(cust);
 	}
 
-	public String generateBill(Customer customer) {
-		
+	GenerateBill gb = (Customer customer) -> {
+	
 		String customerType = customer.getCustomerType();
 		int usedUnits = customer.getUnits();
 		int days = customer.getDays();
@@ -53,6 +56,7 @@ public class ConsumerService {
 			
 		totalBill = (usedUnits * days *perUnitPrice);
 		
-		return "Your bill due is "+((totalBill<0)?0:totalBill)+".";
-	}
+		return "Your bill due is "+((totalBill<0)?0:totalBill)+".";	
+
+	};
 }
